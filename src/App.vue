@@ -1,30 +1,79 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div id="container">
+    <div id="nav">
+      <nav-bar></nav-bar>
+    </div>
+    <div id="main">
+      <div class="side" id="left">
+        <side-panel></side-panel>
+      </div>
+      <div id="minefield">
+        <mine-field></mine-field>
+      </div>
+      <div class="side" id="right">
+        <side-panel></side-panel>
+      </div>
+    </div>
   </div>
-  <router-view/>
 </template>
 
+<script>
+import SidePanel from "./components/SidePanel.vue";
+import MineField from "./components/MineField.vue";
+import NavBar from "./components/NavBar.vue";
+
+export default {
+  components: {
+    SidePanel,
+    MineField,
+    NavBar,
+  },
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+body {
+  margin: 0 0;
 }
 
-#nav {
-  padding: 30px;
+div#container {
+  display: flex;
+  /* max-height: 100vh; */
+  height: 100vh;
+  flex-direction: column;
+
+  background-color: antiquewhite;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+div#main {
+  display: flex;
+  flex: 1;
+  margin: 2vh 5vw;
+
+  justify-content: space-between;
+
+  height: 60vh;
+
+  background-color: white;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+div#nav {
+  flex: none;
+
+  height: 12vh;
+
+  background-color: aquamarine;
+}
+
+div#minefield {
+  flex: 1;
+
+  background-color: grey;
+}
+
+div.side {
+  flex: 0 0 15em;
+
+  background-color: darkcyan;
 }
 </style>
