@@ -1,17 +1,23 @@
 <template>
   <header>
-    this is header
+    <p id="logo">this is logo</p>
+    <Timer />
   </header>
 </template>
 
 <script>
-export default {
+import Timer from "./Timer.vue";
 
-}
+export default {
+  components: { Timer },
+};
 </script>
 
 <style scoped>
 header {
   padding: 1vh 5vw;
+
+  display: flex;
+  justify-content: space-between;
 }
 </style>
